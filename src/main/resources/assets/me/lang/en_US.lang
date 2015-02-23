@@ -1,0 +1,35 @@
+#lang file created by lithial
+
+#Enchantments
+enchantment.me.highjump=HighJump
+enchantment.me.swiftness=Swiftness
+enchantment.me.cloud=Cloud
+enchantment.me.regen=Regeneration
+enchantment.me.horticulture=Horticulture
+enchantment.me.slowarrow=Slow Arrow
+enchantment.me.poisonarrow=Poison Arrow
+enchantment.me.witherarrow=Wither Arrow
+enchantment.me.slowaspect=Lethargy
+enchantment.me.poisonaspect=Poison Aspect
+enchantment.me.witheraspect=Wither Aspect
+enchantment.me.slowaoe=Slow AOE
+enchantment.me.poisonaoe=Poison AOE
+enchantment.me.witheraoe=Wither AOE
+enchantment.me.verticallity=Verticallity
+enchantment.me.blast=Blast
+enchantment.me.leech=Leech
+enchantment.me.wisdom=Wisdom
+enchantment.me.magnet=Magnet
+enchantment.me.vigor=Vigor
+enchantment.me.nightvision=Night Vision
+enchantment.me.quickdraw=Quick Draw
+enchantment.me.steadfast=SteadFast
+enchantment.me.icestep=Ice Step
+enchantment.me.photosynthesis=PhotoSynthesis
+enchantment.me.heat=Heat
+enchantment.me.antivenom=AntiVenom
+enchantment.me.homing=Homing
+enchantment.me.sharpshooter=SharpShooter
+enchantment.me.greenwood=Greenwood
+enchantment.me.disarm=Disarm
+enchantment.me.edged=Edged

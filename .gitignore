@@ -1,0 +1,13 @@
+/*
+!/.gitignore
+!/gradle/
+!/gradle/*
+!/gradle*
+!/src/
+!/src/*
+!/lib
+!/*.gradle
+!/*.md
+.gradle
+gitlog-to-changelog
+CHANGELOG 
