@@ -8,6 +8,7 @@
 !/lib
 !/*.gradle
 !/*.md
+!/src/main/MoreEnchantments.iml
 .gradle
 gitlog-to-changelog
 CHANGELOG 
