@@ -16,7 +16,8 @@ public class Enchantments {
             slowArrow, poisonArrow, witherArrow, slowAspect, poisonAspect,
             witherAspect, slowAoe, poisonAoe, witherAoe, verticallity, blast,
             leech, wisdom, magnet, vigor, nightvision, steadfast, quickdraw, icestep,
-            photo, heat, venom, homing,sharpShooter,parry,multipurpose, greenwood,disarm;
+            photo, heat, venom, homing,sharpShooter,parry,multipurpose, greenwood,disarm,demonhunter
+            ,remoteDetonation, purging;
 
     public static boolean allowLeech = true, allowWisdom = true,
             allowSwiftness = true, allowPoisonAspect = true,
@@ -29,12 +30,14 @@ public class Enchantments {
             allowPhoto = true, allowBlast = true, allowPoisonAoe = true,
             allowSlowAoe = true, allowHeat = true, allowWitherArrow = true,
             allowWitherAspect = true, allowWitherAOE = true, allowPenetrate = true,
-            allowSharpShooter = true, allowMulti = true, hotbarOnly = true,allowGreenWood = true,allowDisarm = true;
+            allowSharpShooter = true, allowMulti = true, hotbarOnly = true,
+            allowGreenWood = true,allowDisarm = true, allowDemonHunter,
+            allowRD,allowPurging;
 
     public static int photoDelay, poisonArrowTimer, slowArrowTimer, witherArrowTimer, poisonAspectTimer, slowAspectTimer,
             witherAspectTimer, poisonAOETimer, slowAOETimer, witherAOETimer, greenwoodDelay;
     public static int flowerUpdate,cactusUpdate,saplingUpdate,melonUpdate,modUpdate,tallGrassUpdate;
-    public static double highjumpbonus, verticallitybonus;
+    public static double highjumpbonus, verticallitybonus, demonBonus, purgingBonus;
 
     static Property get(String catagory, String name, int id) {
         return config.get(catagory, name, id);
@@ -95,7 +98,11 @@ public class Enchantments {
         Property MultiPurpose = get(ENCHANT, "MultiPurpose", 332);
         Property GreenWood = get(ENCHANT, "GreedWood", 333);
         Property Disarm = get(ENCHANT, "Disarm", 334);
-        
+        Property DemonHunter = get(ENCHANT, "DemonHunter", 335);
+        Property Purging = get(ENCHANT, "Purging", 336);
+        Property RemoteDetonation = get(ENCHANT, "RemoteDetonation", 337);
+
+
         Property HomingWeight = get(WEIGHT, "Homing", 5);
         Property SharpShooterWeight = get(WEIGHT, "SharpShooter", 5);
         Property LeechWeight = get(WEIGHT, "Leech", 10);
@@ -131,6 +138,9 @@ public class Enchantments {
         Property MultiPurposeWeight = get(WEIGHT, "MultiPurpose", 5);
         Property GreenWoodWeight = get(WEIGHT, "GreenWood", 1);
         Property DisarmWeight = get(WEIGHT, "Disarm", 5);
+        Property DemonHunterWeight = get(WEIGHT, "DemonHunter", 5);
+        Property RemoteDetonationWeight = get(WEIGHT, "RemoteDetonation", 5);
+        Property PurgingWeight = get(WEIGHT, "Purging", 5);
 
         allowHoming = getb(ALLOW, "Homing", true);
         allowSharpShooter = getb(ALLOW, "SharpShoooter",true);
@@ -166,11 +176,17 @@ public class Enchantments {
         allowMulti = getb(ALLOW,"MultiPurpose", true);
         allowGreenWood = getb(ALLOW,"GreenWood", true);
         allowDisarm = getb(ALLOW,"Disarm", true);
+        allowDemonHunter = getb(ALLOW,"DemonHunter", true);
+        allowRD = getb(ALLOW,"RemoteDetonation", true);
+        allowPurging = getb(ALLOW,"Purging", true);
 
         photoDelay = config.get(BONUS, "PhotoDelay in seconds ", 15).getInt();
         greenwoodDelay = config.get(BONUS, "GreenWood Delay in seconds ", 15).getInt();
         highjumpbonus = config.get(BONUS, "HighJump Modifier default = 0.4",0.4,"dont go to high you'll break it").getDouble();
         verticallitybonus = config.get(BONUS, "Verticallity Modifier default = 1.2", 1.5,"dont go to high you'll break it" ).getDouble();
+        demonBonus = config.get(BONUS, "demon hunter damage multiplyer default is 1.5",1.5).getDouble();
+        purgingBonus = config.get(BONUS, "Purging damage multiplyer default is 1.5",1.5).getDouble();
+
         // blastbonus = config.get(BONUS, "Blast arrow explosion size", 4F).getInt();
 
         config.setCategoryComment(UPDATE,"The rate at which plants grow,s "+"dont go to high or you'll break it" );
@@ -227,6 +243,8 @@ public class Enchantments {
         Property SharpShooterMax = get(MAX, "SharpShooter dont change", 1);
         Property GreenWoodMax = get(MAX, "GreenWood dont change", 1);
         Property DisarmMax = get(MAX, "Disarm", 3);
+        Property DemonHunterMax = get(MAX, "DemonHunter", 3);
+        Property PurgingMax = get(MAX, "Purging", 3);
 
 	/*	if(allowPenetrate)
 			penetrate = new EnchantmentCore(Penetrate.getInt(), Penetrate.getInt(), EnumEnchantmentType.weapon, "penetrate", 1, 1, ban(Compat.penetrate1),ban(Compat.penetrate2),ban(Compat.penetrate3),ban(Compat.penetrate4));
@@ -301,7 +319,12 @@ public class Enchantments {
             greenwood = new EnchantmentCore(GreenWood.getInt(), GreenWoodWeight.getInt(), EnumEnchantmentType.all, "greenwood",1,1,null,null,null,null);
         if(allowDisarm)
         disarm = new EnchantmentCore(Disarm.getInt(), DisarmWeight.getInt(), EnumEnchantmentType.weapon, "disarm",1,DisarmMax.getInt(),null,null,null,null);
-        
+        if(allowDemonHunter)
+        demonhunter = new EnchantmentCore(DemonHunter.getInt(),DemonHunterWeight.getInt(),EnumEnchantmentType.bow,"demonhunter",1,DemonHunterMax.getInt(),null,null,null,null);
+        if(allowRD)
+            remoteDetonation = new EnchantmentCore(RemoteDetonation.getInt(),RemoteDetonationWeight.getInt(),EnumEnchantmentType.bow,"remotedetonation",1,1,null,null,null,null);
+        if(allowPurging)
+            purging = new EnchantmentCore(Purging.getInt(),PurgingWeight.getInt(),EnumEnchantmentType.weapon,"purging",1,Purging.getInt(),null,null,null,null);
         config.load();
       save();
     }

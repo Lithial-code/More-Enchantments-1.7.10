@@ -5,8 +5,6 @@ import com.lithial.me.handlers.utils.HorticultureHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -28,6 +26,7 @@ import java.util.List;
  */
 public class EffectManager{
 	public static final PlayerCapabilities genericPlayerCapabilities = new PlayerCapabilities();
+		
 	public static void HighJump (EntityPlayer player, ItemStack stack){
 		double jumpbonus = 1 + (EnchantmentHelper.getEnchantmentLevel(Enchantments.highjump.effectId, stack) * Enchantments.highjumpbonus);
 		player.motionY *= jumpbonus;
@@ -89,6 +88,7 @@ public class EffectManager{
 
 		}
 	}
+
 	public static void Arrow(EntityLiving living, ItemStack stack, int name, int duration, int level)
 	{
 		living.addPotionEffect(new PotionEffect(name, duration, level));
@@ -248,6 +248,7 @@ public class EffectManager{
 			}
 		}
 	}
-
+ 
 }
+
 

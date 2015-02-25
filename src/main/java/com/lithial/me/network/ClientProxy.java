@@ -1,9 +1,7 @@
 package com.lithial.me.network;
 
 import com.lithial.me.handlers.controls.KeyBind;
-
 import cpw.mods.fml.common.FMLCommonHandler;
-
 
 
 public class ClientProxy extends CommonProxy {
@@ -21,6 +19,5 @@ public class ClientProxy extends CommonProxy {
 		KeyBindingRegistry.registerKeyBinding(new KeyBind(key, repeat));*/
 		FMLCommonHandler.instance().bus().register(new KeyBind());
 	}
-
 
 }

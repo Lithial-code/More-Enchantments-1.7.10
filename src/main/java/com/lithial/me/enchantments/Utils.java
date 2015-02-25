@@ -4,6 +4,8 @@ package com.lithial.me.enchantments;
 import ibxm.Player;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -54,4 +56,5 @@ public class Utils {
         }
         return (ItemStack[])tools.toArray(new ItemStack[tools.size()]);
     }
+
 }

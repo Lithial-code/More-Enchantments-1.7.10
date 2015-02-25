@@ -49,7 +49,7 @@ public class MoreEnchantments {
 		IdExtension.expand();
 		File config = new File(event.getModConfigurationDirectory(), "MoreEnchantments/Core.cfg");
         File config2 = new File(event.getModConfigurationDirectory(), "MoreEnchantments/Compat.cfg");
-
+     
 		Enchantments.initialize(config);
         Compat.initialize(config2);
 		Enchantments.save();
@@ -68,7 +68,7 @@ public class MoreEnchantments {
 		new Enchantments();
 		proxy.registerEvents();
 
-	}
+		}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
