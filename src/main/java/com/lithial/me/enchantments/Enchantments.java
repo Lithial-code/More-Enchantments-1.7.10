@@ -309,7 +309,7 @@ public class Enchantments {
 			durabillity = new EnchantmentCore(Durability.getInt(), DurabilityWeight.getInt(), EnumEnchantmentType.armor, "durabillity", 1, 4)
 		 */
         if (allowHoming)
-            homing = new EnchantmentCore(Homing.getInt(), Homing.getInt(), EnumEnchantmentType.bow, "homing", 1, HomingMax.getInt(), ban(Compat.homing1), ban(Compat.homing2), ban(Compat.homing3), ban(Compat.homing4));
+            homing = new EnchantmentCore(Homing.getInt(), HomingWeight.getInt(), EnumEnchantmentType.bow, "homing", 1, HomingMax.getInt(), ban(Compat.homing1), ban(Compat.homing2), ban(Compat.homing3), ban(Compat.homing4));
         if (allowSharpShooter)
             sharpShooter = new EnchantmentCore(SharpShooter.getInt(), SharpShooterWeight.getInt(), EnumEnchantmentType.bow, "sharpshooter", 1, SharpShooterMax.getInt(), ban(Compat.sharpshooter1), ban(Compat.sharpshooter2), ban(Compat.sharpshooter3), ban(Compat.sharpshooter4));
         //parry = new EnchantmentCore(Parry.getInt(),ParryWeight.getInt(),EnumEnchantmentType.weapon, "parry",1,1,null,null,null,null);
